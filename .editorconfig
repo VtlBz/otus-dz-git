@@ -1,0 +1,63 @@
+# Check https://editorconfig.org for more information
+# This is the main config file for this project:
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{md,markdown}]
+# Markdown indentation depends on the construct and is checked by markdownlint
+indent_style = unset
+indent_size = unset
+# Markdown: two trailing spaces = a hard line break - don't strip them
+trim_trailing_whitespace = false
+
+[*.toml]
+indent_size = 2
+tab_width = 2
+
+[{*.yml,*.yaml,.yamllint}]
+# YAML: indentation is syntax (2 spaces by convention), tabs forbidden
+indent_style = space
+indent_size = 2
+
+[*.{sh,bash}]
+# Shell uses four-space indentation; shfmt preserves required tabs inside <<- heredocs
+indent_style = space
+indent_size = 4
+# shfmt extension options:
+# equivalent to --case-indent (-ci)
+switch_case_indent = true
+# equivalent to --binary-next-line (-bn)
+binary_next_line = true
+
+[{GNUmakefile,Makefile,makefile,*.mk}]
+# Make uses tabs throughout so editors always insert the tabs required by recipes
+indent_style = tab
+indent_size = tab
+
+[*.{py,pyi}]
+# Python: indentation is syntax (4 spaces, PEP 8)
+indent_style = space
+indent_size = 4
+
+[{*.go,go.mod,go.sum}]
+# Go: gofmt enforces tabs (tooling, not syntax)
+indent_style = tab
+indent_size = tab
+
+[*.{json,jsonc}]
+indent_size = 2
+
+[*.{html,css}]
+indent_size = 2
+
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
